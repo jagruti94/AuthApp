@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.authapp.ui.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:background="@color/colorPrimary">
+
+        <LinearLayout
+            android:id="@+id/bottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_login_bottom_bg"
+            android:orientation="vertical"
+            android:paddingEnd="25dp"
+            android:paddingStart="25dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:layout_marginTop="36dp"
+                android:gravity="center_vertical"
+                android:inputType="text"
+                android:text="@={viewmodel.email}"
+                bind:setError="@{viewmodel.error_msg_email}"
+                android:textSize="18sp"
+                android:drawablePadding="8dp"
+                android:textColor="@color/color_login_et_text"
+                android:textColorHint="@color/color_login_et_hint"
+                android:hint="@string/email"
+                app:backgroundTint="@color/color_login_et_background"
+                android:drawableLeft="@drawable/ic_person" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/ic_lock"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:hint="@string/password"
+                android:textColor="@color/color_login_et_text"
+                android:textColorHint="@color/color_login_et_hint"
+                android:text="@={viewmodel.password}"
+                bind:setError="@{viewmodel.error_msg_pass}"
+                android:textSize="18sp"
+                app:backgroundTint="@color/color_login_et_background" />
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="24dp"
+                android:onClick="@{()->viewmodel.login()}"
+                android:text="@string/login"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="18sp"
+                android:background="@color/color_login_btn_background"/>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
