@@ -11,12 +11,18 @@ import retrofit2.Response
 
 class LoginRepository {
 
+    /**
+     * Makes an API call and returns result in callback.
+     */
     fun login(email:String,password:String,callback: OperationCallback)
      {
 
-             callback.onSuccess(User("",email)) //returning dummy data as API not available
+         //dummy data check as API not available
 
-         //  callback.onError("Something went wrong.Please try again")
+         if(email == "work.jagruti@gmail.com" && password == "Test@1234")
+             callback.onSuccess(User("",email))
+         else
+             callback.onError("Email address or password is invalid")
 
          // API call
        /* WebServiceClient.client.create(AuthAppApi::class.java).LOGIN(email,password)
@@ -32,8 +38,7 @@ class LoginRepository {
                 }
                 override fun onFailure(call: Call<LoginApiResponse>?, t: Throwable?)
                 { callback.onError(t?.message) }
-            })
-*/
+            })*/
     }
 
 }
