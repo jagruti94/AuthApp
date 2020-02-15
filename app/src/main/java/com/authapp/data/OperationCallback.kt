@@ -1,6 +1,7 @@
 package com.authapp.data
 
+import com.authapp.data.model.LoginResponse
+
 interface OperationCallback {
-    fun onSuccess(obj:Any?)
-    fun onError(obj:Any?)
+    fun onCallback(response:LoginResponse)
 }

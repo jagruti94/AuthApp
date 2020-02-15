@@ -44,7 +44,6 @@
             android:gravity="center_vertical"
             android:inputType="text"
             android:text="@={viewmodel.email}"
-            bind:setError="@{viewmodel.error_msg_email}"
             android:textSize="18sp"
             android:drawablePadding="8dp"
             android:textColor="@color/color_login_et_text"
@@ -52,7 +51,8 @@
             android:hint="@string/email"
             app:backgroundTint="@color/color_login_et_background"
             android:drawableLeft="@drawable/ic_login_email"
-            android:layout_marginRight="30dp" />
+            android:layout_marginRight="30dp"
+            android:drawableStart="@drawable/ic_login_email" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/password_et"
@@ -72,9 +72,9 @@
             android:textColor="@color/color_login_et_text"
             android:textColorHint="@color/color_login_et_hint"
             android:text="@={viewmodel.password}"
-            bind:setError="@{viewmodel.error_msg_pass}"
             android:textSize="18sp"
-            app:backgroundTint="@color/color_login_et_background" />
+            app:backgroundTint="@color/color_login_et_background"
+            android:drawableStart="@drawable/ic_login_password" />
 
         <Button
             android:id="@+id/btn_login"
