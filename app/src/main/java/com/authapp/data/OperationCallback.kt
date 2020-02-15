@@ -1,7 +1,7 @@
 package com.authapp.data
 
-import com.authapp.data.model.LoginResponse
+import com.authapp.data.model.Response
 
 interface OperationCallback {
-    fun onCallback(response:LoginResponse)
+    fun onCallback(response:Response<String>)
 }

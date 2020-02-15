@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
 
         viewmodel.validationError.observe(this, Observer { handleError(it)})
 
-        viewmodel.userLogin.observe(this, Observer { response->
+        viewmodel.user.observe(this, Observer { response->
             if(response.success){
                 val intent = Intent(this, HomeActivity::class.java)
                 with(HomeActivity.IntentOptions) {

@@ -7,12 +7,12 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.authapp.R
 import com.authapp.data.OperationCallback
-import com.authapp.data.model.LoginResponse
+import com.authapp.data.model.Response
 import com.authapp.data.repo.LoginRepository
 
 class LoginViewModel(application: Application) : AndroidViewModel(application){
 
-      val userLogin: MutableLiveData<LoginResponse> = MutableLiveData()
+      val user: MutableLiveData<Response<String>> = MutableLiveData()
 
       val email = MutableLiveData<String>("")
       val password = MutableLiveData<String>("")
@@ -36,8 +36,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application){
              return
         }
         loginRepo.login(email.value!!, password.value!!,object: OperationCallback {
-            override fun onCallback(response: LoginResponse) {
-                userLogin.value=response
+            override fun onCallback(response: Response<String>) {
+                user.value=response
             }
         })
     }
